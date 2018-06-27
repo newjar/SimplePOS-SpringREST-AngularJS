@@ -1,5 +1,15 @@
 # SimplePOS-SpringREST-AngularJS
 
+Program sederhana point of sale.
+terdapat 3 master :
+- Barang
+- Customer
+- Supplier
+
+dan 2 transaksi :
+- Penjualan
+- Pembelian
+
 Requirements :
 - Netbeans >= 8.0.1
 - Mysql
