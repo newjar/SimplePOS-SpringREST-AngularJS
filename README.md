@@ -12,7 +12,7 @@ dan 2 transaksi :
 - Pembelian
 
 Requirements :
-- Netbeans >= 8.0.1
+- Netbeans >= 8.0.2
 - Mysql
 
 How-to :
