@@ -11,11 +11,11 @@ dan 2 transaksi :
 - Penjualan
 - Pembelian
 
-Requirements :
+#### Requirements :
 - Netbeans >= 8.0.2
 - Mysql
 
-How-to :
+#### How-to :
 1. Import .sql file dari folder Database
 2. Running menggunakan Apache tomcat server.
 3. Enjoy!
