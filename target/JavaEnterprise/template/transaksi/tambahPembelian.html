@@ -1,0 +1,227 @@
+<section class="content-header">
+    <h1>
+    <span ng-show="isEdit">Ubah Pembelian</span>
+    <span ng-hide="isEdit">Tambah Pembelian</span>
+    <small></small>
+  </h1>
+    <ol class="breadcrumb">
+        <li><a href="workspace.html"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#transaksi/pembelian">Pembelian</a></li>
+        <li class="active">Ubah Pembelian</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <h3 class="box-title"></h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" ng-click="cancel()">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div ng-controller="PembelianCreateController">
+                    <!-- HEADER -->
+                    <div class="col-lg-12">
+                        <div class="box">
+                            <form name="PembelianSaveForm" class="form-horizontal" role="form">
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label class="col-md-2">Kode Supplier</label>
+                                        <div class="col-md-4">
+                                            <input id="inputSupplierKode" maxlength="11" type="text" ng-model="pembelian.supplier.kode" placeholder="Isi Kode Supplier" class="form-control col-md-3" style="text-transform:uppercase" required>
+                                        </div>
+                                        <div class="col-md-1" style="margin-left: -15px;">
+                                            <button id="btnSupplierKode" type="button" ng-click="detailSupplier(pembelian)" class="btn btn-flat btn-info btn-md col-sm" title=" Search"><i class="fa fa-search"></i></button>
+                                        </div>
+                                        <label class="col-md-1">Tanggal Pembelian</label>
+                                        <div class="col-md-4">
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                            <input type="date" ng-model="pembelian.tgl_pembelian" class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <div class="box box-info" ng-show="isViewSupplier">
+                                                <div class="box-header with-border">
+                                                    <h3 class="box-title">Data Supplier</h3>
+                                                    <div class="box-tools pull-right">
+                                                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                                            <i class="fa fa-minus"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="box-body">
+                                                    <div class="form-group">
+                                                        <label class="col-md-2">Kode</label>
+                                                        <label class="col-md-8">
+                                                            <span style="font-weight: normal">:  {{pembelian.supplier.kode}}</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-2">Nama Supplier</label>
+                                                        <label class="col-md-8">
+                                                            <span style="font-weight: normal">:  {{pembelian.supplier.nama}}</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-2">Alamat</label>
+                                                        <label class="col-md-8">
+                                                            <span style="font-weight: normal">:  {{pembelian.supplier.alamat}}</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-2">No.Telepon</label>
+                                                        <label class="col-md-8">
+                                                            <span style="font-weight: normal">:  {{pembelian.supplier.no_telp}}</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-2">Email</label>
+                                                        <label class="col-md-8">
+                                                            <span style="font-weight: normal">:  {{pembelian.supplier.email}}</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                        <!-- ISI -->
+                    <div class="col-lg-12">
+                        <div class="box">
+                            <form name="PembelianSaveForm" class="form-horizontal" role="form">
+                                <div class="box-body">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="col-md-4">Kode Barang</label>
+                                        <div class="col-md-7">
+                                            <input id="inputBarangKode" maxlength="11" type="text" ng-model="pembelian.barang.kode" placeholder="Isi Kode Barang" class="form-control col-md-3" style="text-transform:uppercase" required>
+                                        </div>
+                                        <button id="inputBarangKode" type="button" ng-click="detailBarang(pembelian)" class="btn btn-flat btn-info btn-md col-sm" title=" Search"><i class="fa fa-search"></i></button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4">Jumlah</label>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="number" ng-model="pembelian.jumlah" placeholder="" required/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4">Harga Barang</label>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="number" ng-model="pembelian.harga_barang" placeholder="" readonly required/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4">Sub Total Harga</label>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="number" ng-model="pembelian.sub_total_harga" placeholder="" required/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="box box-info" ng-show="isViewBarang">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Data Barang</h3>
+                                            <div class="box-tools pull-right">
+                                                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                                    <i class="fa fa-minus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="box-body">
+                                            <div class="form-group">
+                                                <label class="col-md-4">Kode</label>
+                                                <label class="col-md-6">
+                                                    <span style="font-weight: normal">:  {{pembelian.barang.kode}}</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4">Nama Barang</label>
+                                                <label class="col-md-6">
+                                                    <span style="font-weight: normal">:  {{pembelian.barang.nama}}</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4">Stok</label>
+                                                <label class="col-md-6">
+                                                    <span style="font-weight: normal">:  {{pembelian.barang.stok}}</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4">Satuan</label>
+                                                <label class="col-md-6">
+                                                    <span style="font-weight: normal">:  {{pembelian.barang.satuan}}</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4">Harga Beli</label>
+                                                <label class="col-md-6">
+                                                    <span style="font-weight: normal">:  {{pembelian.barang.harga_beli}}</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4">Harga Jual</label>
+                                                <label class="col-md-6">
+                                                    <span style="font-weight: normal">:  {{pembelian.barang.harga_jual}}</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                        <!-- JUMLAH BELANJA -->
+                    <div class="col-lg-6 pull-right">
+                        <div class="box box-primary">
+                            <div class="box-body">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-md-4">Jumlah Total Belanja</label>
+                                        <div class="col-md-6">
+                                            <span class="form-control" type="number" ng-model="totalBelanja" readonly>{{pembelian.sub_total_harga}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4">Jumlah Bayar</label>
+                                        <div class="col-md-6">
+                                            <input class="form-control" type="number" ng-model="jumlahBayar">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4">Kembalian</label>
+                                        <div class="col-md-6">
+                                            <input class="form-control" value="{{jumlahBayar - pembelian.sub_total_harga}}" type="number" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-footer">
+                                    <button type="button" ng-click="PembelianSaveForm.$valid && save()" class="btn btn-success btn-flat">Simpan</button>
+                                    <button type="reset" class="btn btn-danger btn-flat">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div> 
+                    <!-- CREATE CONTROLLER END -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

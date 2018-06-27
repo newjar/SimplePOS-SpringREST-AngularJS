@@ -1,0 +1,51 @@
+<section class="content-header">
+  <h1>
+    Data Penjualan
+    <small></small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="workspace.html"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li class="active">Data Penjualan</li>
+  </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="row">
+<div class="col-xs-12">
+  <div class="box">
+    <div class="box-header" >
+        <a type="button" class="btn btn-flat btn-success btn-block" style="color: #FFF !important;" ng-click="create()"><b>+Add Data</b></a>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body table-responsive">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+              <th>No.Penjualan</th>
+              <th>Tgl.Penjualan</th>
+              <th>Kd.Customer</th>
+              <th>Nama Customer</th>
+              <th class="text-center">Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="penjualan in penjualanList">
+                <td>{{penjualan.kode}}</td>
+                <td>{{penjualan.tgl_penjualan | date:'dd MMMM yyyy'}}</td>
+                <td>{{penjualan.customer.kode}}</td>
+                <td>{{penjualan.customer.nama}}</td>
+                <td class="text-center">
+                    <a type="button" class="btn btn-info btn-flat" ng-click="detail(penjualan)" title="Detail Penjualan"><i class="fa fa-info"></i></a>
+                    <a type="button" class="btn btn-primary btn-flat" ng-click="edit(penjualan)" title="Ubah Penjualan"><i class="fa fa-edit"></i></a>
+                    <a type="button" class="btn btn-flat btn-danger" ng-click="delete(penjualan)" title="Hapus Penjualan"><i class="fa fa-trash-o "></i></a>
+                </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- /.box-body -->
+  </div>
+</div>
+</div>
+  <!-- /.box -->
+</section>
