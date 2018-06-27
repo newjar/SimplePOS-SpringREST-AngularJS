@@ -1,6 +1,7 @@
 # SimplePOS-SpringREST-AngularJS
 
-Program sederhana point of sale.
+Program sederhana point of sale. Berbasis java spring rest dan angularjs.
+
 terdapat 3 master :
 - Barang
 - Customer
@@ -21,3 +22,6 @@ How-to :
 
 #### Username : admin
 #### Password : admin123
+
+## NOT FOR SALE.
+## Silahkeun yang mau pakai atau mau kembangkan.
